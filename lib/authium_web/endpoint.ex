@@ -7,7 +7,7 @@ defmodule AuthiumWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_authium_key",
-    signing_salt: "l5hW5HDi"
+    signing_salt: "rrMT703Y"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]

@@ -1,5 +1,8 @@
 import Config
 
+# Only in tests, remove the complexity from the password hashing algorithm
+config :bcrypt_elixir, :log_rounds, 1
+
 # Configure your database
 #
 # The MIX_TEST_PARTITION environment variable can be used
@@ -17,7 +20,7 @@ config :authium, Authium.Repo,
 # you can enable the server option below.
 config :authium, AuthiumWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "5OR+tpgLtgsoM+/U+6O2P3NuZ79tEQk3vU0JjoNjrnqkOh9v7bYUlV8U2YDtKxxp",
+  secret_key_base: "Yd75SxFUKyncLG5hP9H3JYdSBSupE44XefIe/OaQ0CBqLEa/21YYHctjNdEtUhKh",
   server: false
 
 # In test we don't send emails.

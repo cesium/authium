@@ -15,7 +15,7 @@ config :authium, AuthiumWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: AuthiumWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Authium.PubSub,
-  live_view: [signing_salt: "Wkcrzik/"]
+  live_view: [signing_salt: "rpBWWakC"]
 
 # Configures the mailer
 #
@@ -25,6 +25,13 @@ config :authium, AuthiumWeb.Endpoint,
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
 config :authium, Authium.Mailer, adapter: Swoosh.Adapters.Local
+
+config :boruta, Boruta.Oauth,
+  repo: Authium.Repo,
+  issuer: "https://auth.cesium.di.uminho.pt",
+  contexts: [
+    resource_owners: Authium.ResourceOwners
+  ]
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false
