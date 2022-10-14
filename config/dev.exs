@@ -22,7 +22,7 @@ config :authium, AuthiumWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "zkpBT9rMXcZ+wgrrEUBZMaLJPiXaVBjkEr5QoWkYeCo88EgvotU7l9UJ6/BYRkUL",
+  secret_key_base: "49512pqPG+mW510jJR8T4deGgCx7cJuff0J6SyNpzowdrEvFAgdQ2xtCq7dGkhL1",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
