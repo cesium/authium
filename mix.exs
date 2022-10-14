@@ -66,16 +66,7 @@ defmodule Authium.MixProject do
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       lint: ["credo --strict --all"],
-      "assets.deploy": ["esbuild default --minify", "phx.digest"],
-      check: [
-        "clean",
-        "deps.unlock --check-unused",
-        "compile --warnings-as-errors",
-        "format --check-formatted",
-        "deps.unlock --check-unused",
-        "test --warnings-as-errors",
-        "lint"
-      ]
+      "assets.deploy": ["esbuild default --minify", "phx.digest"]
     ]
   end
 end
