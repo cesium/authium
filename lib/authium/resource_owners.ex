@@ -35,7 +35,11 @@ defmodule Authium.ResourceOwners do
   end
 
   @impl Boruta.Oauth.ResourceOwners
-  def authorized_scopes(%ResourceOwner{}), do: []
+  def authorized_scopes(%ResourceOwner{}),
+    do: [
+      "https://www.teste1.com/",
+      "https://www.test2.com/"
+    ]
 
   @impl Boruta.Oauth.ResourceOwners
   def claims(%ResourceOwner{sub: sub}, scope) do
@@ -48,12 +52,6 @@ defmodule Authium.ResourceOwners do
             Map.merge(acc, %{
               "email" => email,
               "email_verified" => false
-            })
-
-          "phone", acc ->
-            Map.merge(acc, %{
-              "phone_number_verified" => false,
-              "phone_number" => "+33612345678"
             })
 
           "profile", acc ->
@@ -74,16 +72,6 @@ defmodule Authium.ResourceOwners do
               "name" => "name",
               "nickname" => "nickname",
               "family_name" => "family_name"
-            })
-
-          "address", acc ->
-            Map.put(acc, "address", %{
-              "formatted" => "3 rue Dupont-Moriety, 75021 Paris, France",
-              "street_address" => "3 rue Dupont-Moriety",
-              "locality" => "Paris",
-              "region" => "Ile-de-France",
-              "postal_code" => "75021",
-              "country" => "France"
             })
 
           _, acc ->

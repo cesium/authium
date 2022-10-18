@@ -44,6 +44,17 @@ defmodule Authium.Accounts do
     if User.valid_password?(user, password), do: user
   end
 
+  def list_users(params \\ %{})
+
+  def list_users(_opts) do
+    User
+    |> Repo.all()
+  end
+
+  def update_last_login_at!(user) do
+    user |> User.login_changeset() |> Repo.update!()
+  end
+
   @doc """
   Gets a single user.
 

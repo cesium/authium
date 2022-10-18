@@ -85,6 +85,10 @@ defmodule Authium.Accounts.User do
     end
   end
 
+  def login_changeset(user) do
+    change(user, last_login_at: DateTime.utc_now())
+  end
+
   @doc """
   A user changeset for changing the password.
 
