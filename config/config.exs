@@ -17,6 +17,13 @@ config :authium, AuthiumWeb.Endpoint,
   pubsub_server: Authium.PubSub,
   live_view: [signing_salt: "Wkcrzik/"]
 
+# Configures the boruta
+config :boruta, Boruta.Oauth,
+  repo: Authium.Repo,
+  context: [
+    resource_owners: Boruta.ResourceOwners
+  ]
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails

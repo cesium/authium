@@ -33,6 +33,7 @@ defmodule Authium.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:bcrypt_elixir, "~> 3.0"},
       {:phoenix, "~> 1.6.6"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.6"},
@@ -49,7 +50,12 @@ defmodule Authium.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:credo, "~> 1.6", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
+
+      # Boruta related stuff
+
+      {:boruta, git: "https://gitlab.com/patatoid/boruta_auth.git"},
+      {:mox, "~> 0.5", only: :test}
     ]
   end
 
