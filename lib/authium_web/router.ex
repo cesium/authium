@@ -90,7 +90,7 @@ defmodule AuthiumWeb.Router do
     post "/users/confirm/:token", UserConfirmationController, :update
   end
 
-  scope "/oauth", BorutaExampleWeb.Oauth do
+  scope "/oauth", AuthiumWeb.Oauth do
     pipe_through :api
 
     post "/revoke", RevokeController, :revoke
@@ -98,7 +98,7 @@ defmodule AuthiumWeb.Router do
     post "/introspect", IntrospectController, :introspect
   end
 
-  scope "/openid", BorutaExampleWeb.Openid do
+  scope "/openid", AuthiumWeb.Openid do
     pipe_through :api
 
     get "/userinfo", UserinfoController, :userinfo
@@ -106,13 +106,13 @@ defmodule AuthiumWeb.Router do
     get "/jwks", JwksController, :jwks_index
   end
 
-  scope "/oauth", BorutaExampleWeb.Oauth do
+  scope "/oauth", AuthiumWeb.Oauth do
     pipe_through [:browser, :fetch_current_user]
 
     get "/authorize", AuthorizeController, :authorize
   end
 
-  scope "/openid", BorutaExampleWeb.Openid do
+  scope "/openid", AuthiumWeb.Openid do
     pipe_through [:browser, :fetch_current_user]
 
     get "/authorize", AuthorizeController, :authorize
