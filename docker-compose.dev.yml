@@ -11,6 +11,8 @@ services:
       POSTGRES_HOST: ${DB_HOST:-localhost}
     volumes:
       - /var/lib/postgresql/data
+    ports:
+      - "5433:5432"
   web:
     container_name: authium_web
     env_file: .env.dev
